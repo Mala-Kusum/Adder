@@ -26,7 +26,6 @@ public class MainActivity extends AppCompatActivity {
     public static final String Email="EMAIL";
     public static final String Designation="DESIGNATION";
     public static final String Department="DEPARTMENT";
-    public static final String State="STATE";
     public static final String Address="ADDRESS";
     public static final String Mobile="MOBILE";
     public static final String Landline="LANDLINE";
@@ -47,12 +46,11 @@ public class MainActivity extends AppCompatActivity {
                     m.put(Email, s[1]);
                     m.put(Designation, s[2]);
                     m.put(Department, s[3]);
-                    m.put(State, s[4]);
-                    m.put(Address, s[5]);
-                    m.put(Mobile, s[6]);
-                    m.put(Landline, s[7]);
+                    m.put(Address, s[4]);
+                    m.put(Mobile, s[5]);
+                    m.put(Landline, s[6]);
                     Log.e("name", s[0]);
-                    m.put(Type, s[8]);
+                    m.put(Type, s[7]);
                     noteRef.document(s[1]).set(m).addOnSuccessListener(new OnSuccessListener<Void>() {
                         @Override
                         public void onSuccess(Void unused) {
@@ -82,7 +80,7 @@ public class MainActivity extends AppCompatActivity {
         db = FirebaseFirestore.getInstance();
         noteRef = db.collection("contacts");
         list=new ArrayList<String[]>();
-        list.add(new String[]{"Anita Malik","anita.malik@nhidcl.com","Legal Advisor","Finance","Delhi","Corporate Office (New Delhi)","","","user"});
+        list.add(new String[]{"Anita Malik","an4ta.malik@nhidcl.com","Legal Advisor","Finance","Corporate Office (New Delhi)","","","user"});
 
         for(int i=0;i<list.size();i++){
             Log.e("list i",""+i);
