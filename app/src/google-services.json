@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "123441793004",
+    "project_id": "nhidcl-directory",
+    "storage_bucket": "nhidcl-directory.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:123441793004:android:8b5b13a510ae19d5e1e2c9",
+        "android_client_info": {
+          "package_name": "com.example.adder"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCWtYFmq2gGvLPDZeh8kulniw2ikYGCdZE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
