@@ -14,7 +14,9 @@ import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class MainActivity extends AppCompatActivity {
@@ -33,8 +35,10 @@ public class MainActivity extends AppCompatActivity {
     public static final String Type="TYPE";
     public static final String Pin="PIN";
     ArrayList<String[]> list;
+    List<String> d;
 
     Query querya;
+    Map<String, List<String>> m;
     protected void add_data(String s[]) {
         querya = noteRef.whereEqualTo(MainActivity.Email, s[1]);
         Map<String, String> m = new HashMap<String, String>();
@@ -72,19 +76,53 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+   protected void editDesignationArray(List<String> s){
+        try{
+            m=new HashMap<String, java.util.List<String>>();
+            m.put("desig",s);
+        }
+        catch(Exception e){
+           Log.e("m.put",e.toString());
+       }
+        try {
+            db.collection("desig").document("desi").set(m).addOnSuccessListener(new OnSuccessListener<Void>() {
+                @Override
+                public void onSuccess(Void unused) {
+                    Log.e("onSuccess: ","Designation array successfully updated");
+                }
+            }).addOnFailureListener(new OnFailureListener() {
+                @Override
+                public void onFailure(@NonNull Exception e) {
+                    Log.e("onFailure: ", e.toString());
+                }
+            });
+        }
+        catch (Exception e){
+            Log.e("setm",e.toString());
+        }
+
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         db = FirebaseFirestore.getInstance();
-        noteRef = db.collection("contacts");
-        list=new ArrayList<String[]>();
+        //noteRef = db.collection("contacts");
+        /*list=new ArrayList<String[]>();
         list.add(new String[]{"Anita Malik","an4ta.malik@nhidcl.com","Legal Advisor","Finance","Corporate Office (New Delhi)","","","user"});
 
         for(int i=0;i<list.size();i++){
             Log.e("list i",""+i);
             add_data(list.get(i));
+        }*/
+        String[] designations = {"Managing Director","Director","Executive Director","General Manager","Deputy General Manager","Manager","Consultant","Deputy Manager","Assistant Manager","Junior Manager","Assistant Director - Rajbhasha"};
+        try{
+            d = Arrays.asList(designations);
         }
+        catch(Exception e){
+            Log.e("list assignment",e.toString());
+        }
+        editDesignationArray(d);
     }
 }
