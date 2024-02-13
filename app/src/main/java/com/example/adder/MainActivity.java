@@ -40,7 +40,13 @@ public class MainActivity extends AppCompatActivity {
     Query querya;
     Map<String, List<String>> m;
     protected void add_data(String s[]) {
-        querya = noteRef.whereEqualTo(MainActivity.Email, s[1]);
+        try{
+            querya = noteRef.whereEqualTo(MainActivity.Email, s[1]);
+        }
+        catch(Exception e){
+            Log.e("add_data: ", e.toString());
+        }
+
         Map<String, String> m = new HashMap<String, String>();
         querya.get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
             @Override
@@ -108,21 +114,21 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         db = FirebaseFirestore.getInstance();
-        //noteRef = db.collection("contacts");
-        /*list=new ArrayList<String[]>();
-        list.add(new String[]{"Anita Malik","an4ta.malik@nhidcl.com","Legal Advisor","Finance","Corporate Office (New Delhi)","","","user"});
+        noteRef = db.collection("contacts");
+        list=new ArrayList<String[]>();
+        list.add(new String[]{"Anil Kumar Gautam","gm.fin@nhidcl.com","General Manager","Finance","Corporate Office (New Delhi)","9650990140","","user"});
 
         for(int i=0;i<list.size();i++){
             Log.e("list i",""+i);
             add_data(list.get(i));
-        }*/
-        String[] designations = {"Managing Director","Director","Executive Director","General Manager","Deputy General Manager","Manager","Consultant","Deputy Manager","Assistant Manager","Junior Manager","Assistant Director - Rajbhasha"};
+        }
+        /*String[] designations = {"Managing Director","Director","Executive Director","General Manager","Deputy General Manager","Manager","Consultant","Deputy Manager","Assistant Manager","Junior Manager","Assistant Director - Rajbhasha"};
         try{
             d = Arrays.asList(designations);
         }
         catch(Exception e){
             Log.e("list assignment",e.toString());
         }
-        editDesignationArray(d);
+        editDesignationArray(d);*/
     }
 }
