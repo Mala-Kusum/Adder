@@ -12,6 +12,7 @@ import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QuerySnapshot;
+import com.google.firebase.firestore.SetOptions;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -73,6 +74,28 @@ public class MainActivity extends AppCompatActivity {
                         }
                     });
                 }
+                /*else{
+                    m.put(Name, s[0]);
+                    m.put(Email, s[1]);
+                    m.put(Designation, s[2]);
+                    m.put(Department, s[3]);
+                    m.put(Address, s[4]);
+                    m.put(Mobile, s[5]);
+                    m.put(Landline, s[6]);
+                    Log.e("name", s[0]);
+                    m.put(Type, s[7]);
+                    noteRef.document(s[1]).set(m, SetOptions.merge()).addOnSuccessListener(new OnSuccessListener<Void>() {
+                        @Override
+                        public void onSuccess(Void unused) {
+                            Log.d("add", "success");
+                        }
+                    }).addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            Log.w("Error adding", e.toString());
+                        }
+                    });
+                }*/
             }
         }).addOnFailureListener(new OnFailureListener() {
             @Override
@@ -116,8 +139,16 @@ public class MainActivity extends AppCompatActivity {
         db = FirebaseFirestore.getInstance();
         noteRef = db.collection("contacts");
         list=new ArrayList<String[]>();
-        list.add(new String[]{"Anil Kumar Gautam","gm.fin@nhidcl.com","General Manager","Finance","Corporate Office (New Delhi)","9650990140","","user"});
-
+        //list.add(new String[]{"Anil Kumar Gautam","gm.fin@nhidcl.com","General Manager","Finance","Corporate Office (New Delhi)","9650990140","","user"});
+        list.add(new String[]{"Prabhat Kumar Singh","pksinghnhai.2011@nhidcl.com","Executive Director","Project","RO-Port Blair","9978525079"," ","user"});
+        list.add(new String[]{"Sunil Kumar","sunil.kumar64@nhidcl.com","Executive Director","Project","RO-Itanagar","9878871064"," ","user"});
+        list.add(new String[]{"PANKAJ SINGH","edpghy@nhidcl.com","Executive Director","Project","RO-Guwahati","8948882300"," ","user"});
+        list.add(new String[]{"Nirman Kishan Jambhulkar","nirman.kishan@nhidcl.com","Executive Director","Project","RO-Srinagar,RO-Ladakh(Addl.)","7889674865"," ","user"});
+        list.add(new String[]{"VIRENDRA KUMAR JAKHAR","ed_aizawl@nhidcl.com","Executive Director","Project","RO-Aizawl,RO-Imphal(Addl.)","9996016545"," ","user"});
+        list.add(new String[]{"Amarendra Narayan Singh","a.narayansingh@nhidcl.com","Executive Director","Project","RO-Kohima","9162423600"," ","user"});
+        list.add(new String[]{"PRADIP KUMAR","pradip.kr@nhidcl.com","Executive Director","Project","RO-Agartala","9472823258"," ","user"});
+        list.add(new String[]{"Manoj kumar","manoj.kr74@gov.in","Executive Director","Project","Ro-Jammu","8002483384"," ","user"});
+        list.add(new String[]{"Sandeep Sudhera","ed-ddn@nhidcl.com","Executive Director","Project","RO-dehradun","9468520326"," ","user"});
         for(int i=0;i<list.size();i++){
             Log.e("list i",""+i);
             add_data(list.get(i));
