@@ -139,16 +139,7 @@ public class MainActivity extends AppCompatActivity {
         db = FirebaseFirestore.getInstance();
         noteRef = db.collection("contacts");
         list=new ArrayList<String[]>();
-        //list.add(new String[]{"Anil Kumar Gautam","gm.fin@nhidcl.com","General Manager","Finance","Corporate Office (New Delhi)","9650990140","","user"});
-        list.add(new String[]{"Prabhat Kumar Singh","pksinghnhai.2011@nhidcl.com","Executive Director","Project","RO-Port Blair","9978525079"," ","user"});
-        list.add(new String[]{"Sunil Kumar","sunil.kumar64@nhidcl.com","Executive Director","Project","RO-Itanagar","9878871064"," ","user"});
-        list.add(new String[]{"PANKAJ SINGH","edpghy@nhidcl.com","Executive Director","Project","RO-Guwahati","8948882300"," ","user"});
-        list.add(new String[]{"Nirman Kishan Jambhulkar","nirman.kishan@nhidcl.com","Executive Director","Project","RO-Srinagar,RO-Ladakh(Addl.)","7889674865"," ","user"});
-        list.add(new String[]{"VIRENDRA KUMAR JAKHAR","ed_aizawl@nhidcl.com","Executive Director","Project","RO-Aizawl,RO-Imphal(Addl.)","9996016545"," ","user"});
-        list.add(new String[]{"Amarendra Narayan Singh","a.narayansingh@nhidcl.com","Executive Director","Project","RO-Kohima","9162423600"," ","user"});
-        list.add(new String[]{"PRADIP KUMAR","pradip.kr@nhidcl.com","Executive Director","Project","RO-Agartala","9472823258"," ","user"});
-        list.add(new String[]{"Manoj kumar","manoj.kr74@gov.in","Executive Director","Project","Ro-Jammu","8002483384"," ","user"});
-        list.add(new String[]{"Sandeep Sudhera","ed-ddn@nhidcl.com","Executive Director","Project","RO-dehradun","9468520326"," ","user"});
+        list.add(new String[]{"Ramesh Kinwar","it.mgr@nhidcl.com","Manager","IT","NHIDCL HQrs (New Delhi)","+91 9711837966","011-23461706","user"});
         for(int i=0;i<list.size();i++){
             Log.e("list i",""+i);
             add_data(list.get(i));
