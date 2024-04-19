@@ -47,7 +47,6 @@ public class MainActivity extends AppCompatActivity {
         catch(Exception e){
             Log.e("add_data: ", e.toString());
         }
-
         Map<String, String> m = new HashMap<String, String>();
         querya.get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
             @Override
@@ -138,12 +137,32 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         db = FirebaseFirestore.getInstance();
         noteRef = db.collection("contacts");
+        //CODE TO ADD DATA
         list=new ArrayList<String[]>();
         list.add(new String[]{"Ramesh Kinwar","it.mgr@nhidcl.com","Manager","IT","NHIDCL HQrs (New Delhi)","+91 9711837966","011-23461706","user"});
         for(int i=0;i<list.size();i++){
             Log.e("list i",""+i);
             add_data(list.get(i));
         }
+        //CODE TO ADD DATA END.....................................................
+
+        //CODE TO REMOVE PARTICULAR DATA
+        /*noteRef.whereIn("DESIGNATION", Arrays.asList("Deputy General Manager","General Manager")).whereNotEqualTo("ADDRESS","NHIDCL HQrs (New Delhi)").delete()
+                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void aVoid) {
+                        Log.d(TAG, "DocumentSnapshot successfully deleted!");
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Log.w(TAG, "Error deleting document", e);
+                    }
+                });*/
+        //CODE TO REMOVE PAPRTICAL DATA END..................................................
+
+        //CODE TO EDIT DESIGNATION ARRAY
         /*String[] designations = {"Managing Director","Director","Executive Director","General Manager","Deputy General Manager","Manager","Consultant","Deputy Manager","Assistant Manager","Junior Manager","Assistant Director - Rajbhasha"};
         try{
             d = Arrays.asList(designations);
@@ -152,5 +171,6 @@ public class MainActivity extends AppCompatActivity {
             Log.e("list assignment",e.toString());
         }
         editDesignationArray(d);*/
+        //CODE TO EDIT DESIGNATION ARRAY END..............................................
     }
 }
